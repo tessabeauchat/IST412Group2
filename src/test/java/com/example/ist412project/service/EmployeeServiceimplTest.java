@@ -26,13 +26,18 @@ class EmployeeServiceimplTest {
 
     @Test
     void getOneEmployeeByID() {
+        int eidInt = 1234;
+        Long eidLong=Long.valueOf(eidInt);
+        Employee employee = repository.findById(eidLong).get();
+        assertEquals("Test 1", employee.getemplyName());
     }
 
     @Test
-    void deleteEmployeeByID() {
-    }
-
-    @Test
-    void findPaginated() {
+    void deleteOneEmployeeByID() {
+        int eidInt = 1234;
+        Long eidLong=Long.valueOf(eidInt);
+        repository.deleteById(eidLong);
+        List<Employee> items = repository.findAll();
+        assertEquals(3, items.size());
     }
 }
