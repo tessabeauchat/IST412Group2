@@ -54,8 +54,8 @@ public class EmployeeController {
         return "redirect:/EmployeeList";
     }
 
-    @GetMapping("/showStudFormForUpdate/{eid}")
-    public String showStudFormForUpdate(@PathVariable(value = "eid") long eid, Model model)
+    @GetMapping("/showEmployeeFormForUpdate/{eid}")
+    public String showEmployeeFormForUpdate(@PathVariable(value = "eid") long eid, Model model)
     {
         //get Employee from the service
         Employee Employee = employeeService.getEmployeeByID(eid);

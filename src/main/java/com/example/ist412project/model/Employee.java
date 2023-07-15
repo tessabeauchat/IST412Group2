@@ -3,8 +3,6 @@ package com.example.ist412project.model;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 @Table(name="employee")
@@ -16,6 +14,7 @@ public class Employee implements Serializable {
     private String emplyName;
     @Column(name = "emply_email")
     private String emplyEmail;
+
 
     public void seteid(long eid) {
         this.eid = eid;
