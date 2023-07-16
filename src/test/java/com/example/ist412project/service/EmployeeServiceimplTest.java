@@ -23,7 +23,6 @@ class EmployeeServiceimplTest {
         List<Employee> items = repository.findAll();
         assertEquals(4, items.size());
     }
-
     @Test
     void updateEmployee(){
         int eidInt = 1234;
@@ -41,7 +40,6 @@ class EmployeeServiceimplTest {
         Employee employee = repository.findById(eidLong).get();
         assertEquals("Test 1", employee.getemplyName());
     }
-
     @Test
     void deleteOneEmployeeByID() {
         int eidInt = 1234;

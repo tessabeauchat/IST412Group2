@@ -7,6 +7,9 @@ import java.io.Serializable;
 @Entity
 @Table(name="employee")
 public class Employee implements Serializable {
+    /**
+     * Creates table to store all employee data. Establishes fields in the employee table.
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long eid;
@@ -15,7 +18,10 @@ public class Employee implements Serializable {
     @Column(name = "emply_email")
     private String emplyEmail;
 
-
+    /**
+     * Creates getter and setter methods for all employee table data fields
+     * @param eid
+     */
     public void seteid(long eid) {
         this.eid = eid;
     }

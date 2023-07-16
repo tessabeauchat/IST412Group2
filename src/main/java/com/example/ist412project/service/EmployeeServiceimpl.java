@@ -13,20 +13,35 @@ import java.util.List;
 import java.util.Optional;
 @Service
 public class EmployeeServiceimpl implements EmployeeService{
-
-        @Autowired
+    /**
+     * Connect to employee repository
+     */
+    @Autowired
         private EmployeeRepository employeeRepository;
 
-        @Override
+    /**
+     * Get and display all data from employee repository
+     * @return all employee data in list form
+     */
+    @Override
         public List<Employee> getAllEmployees() {
             return employeeRepository.findAll();
         }
 
-        @Override
+    /**
+     * save employee data
+     * @param employee all data related to a complete employee
+     */
+    @Override
         public void saveEmployee(Employee employee) { this.employeeRepository.save(employee);
         }
 
-        @Override
+    /**
+     * Get employee infomration using PK input of employee id to search database
+     * @param eid
+     * @return
+     */
+    @Override
         public Employee getEmployeeByID(long eid) {
             Optional<Employee> optional = employeeRepository.findById(eid);
             Employee employee = null;
@@ -39,11 +54,23 @@ public class EmployeeServiceimpl implements EmployeeService{
             return employee;
         }
 
-        @Override
+    /**
+     * Delete employee from repository using PK employee id to search database
+     * @param eid
+     */
+    @Override
         public void deleteEmployeeByID(long eid) { this.employeeRepository.deleteById(eid);
 
         }
 
+    /**
+     * Display information from data repository formatted
+     * @param pageNo
+     * @param pageSize
+     * @param sortField
+     * @param sortDirection
+     * @return
+     */
         @Override
         public Page<Employee> findPaginated(int pageNo, int pageSize, String sortField, String sortDirection) {
             Sort sort = sortDirection.equalsIgnoreCase(Sort.Direction.ASC.name()) ? Sort.by(sortField).ascending() :
