@@ -25,6 +25,16 @@ class EmployeeServiceimplTest {
     }
 
     @Test
+    void updateEmployee(){
+        int eidInt = 1234;
+        Long eidLong=Long.valueOf(eidInt);
+        Employee employee = repository.findById(eidLong).get();
+        employee.setemplyName("Test 1 Updated");
+        repository.save(employee);
+        List<Employee> items = repository.findAll();
+        assertEquals("Test 1 Updated", repository.findById(eidLong).get().getemplyName());
+    }
+    @Test
     void getOneEmployeeByID() {
         int eidInt = 1234;
         Long eidLong=Long.valueOf(eidInt);
