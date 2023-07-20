@@ -1,4 +1,5 @@
-<!--https://www.w3schools.com/howto/howto_css_login_form.asp-->
+<!--
+https://www.w3schools.com/howto/howto_css_login_form.asp -->
 <!DOCTYPE html>
 <html lang="en">
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
@@ -8,32 +9,44 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
+<script type=text/javascript>
+    function redirectFunc(){
+        var loginDashboard;
+        console.log("Redirect function accessed")
+        var managercreds = document.getElementById('login_with_manager_creds');
+        if (managercreds.checked == true){
+            loginDashboard = "manager_dashboard.html"
+            console.log("This is working")
+        }else{
+            loginDashboard = "employee_dashboard.html"
+            console.log("This is working")
+        }
+        href = loginDashboard;
+        console.log("Made it to part 2")
+    }
+</script>
 <div class="container my-2">
     <h1>Login</h1>
-    <form action="action_page.php" method="post">
-        <div class="imgcontainer">
-            <img src="img_avatar2.png" alt="Avatar" class="avatar">
-        </div>
-
+    <form onsubmit="redirectFunc()">
         <div class="container">
-            <label for="uname"><b>Username</b></label>
+            <label><b>Username</b></label>
             <input type="text" placeholder="Enter Username" name="uname" required>
 
-            <label for="psw"><b>Password</b></label>
+            <label><b>Password</b></label>
             <input type="password" placeholder="Enter Password" name="psw" required>
-            <a href="HTML.html">
-                <button type="submit">Login</button>
-            </a>
+            <button type="submit" id="submitBtn">Login</button>
             <label>
-                <input type="checkbox" checked="checked" name="remember"> Remember me
+                <input type="checkbox" id="login_with_manager_creds" name="manager"> Log-in As Manager?
             </label>
         </div>
 
-        <div class="container" style="background-color:#f1f1f1">
+ <!--       <div class="container" style="background-color:#f1f1f1">
             <button type="button" class="cancelbtn">Cancel</button>
             <span class="psw">Forgot <a href="#">password?</a></span>
-        </div>
+        </div>-->
     </form>
 </div>
 </body>
-</html></html>
+</html>
+
+

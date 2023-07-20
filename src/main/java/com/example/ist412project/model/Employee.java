@@ -17,6 +17,10 @@ public class Employee implements Serializable {
     private String emplyName;
     @Column(name = "emply_email")
     private String emplyEmail;
+    @ManyToMany(cascade = CascadeType.MERGE)
+
+    @JoinTable(name = "employee_user",
+            joinColumns = {@JoinColumn(name = "eid")})
 
     /**
      * Creates getter and setter methods for all employee table data fields
