@@ -15,35 +15,32 @@ https://www.w3schools.com/howto/howto_css_login_form.asp -->
         console.log("Redirect function accessed")
         var managercreds = document.getElementById('login_with_manager_creds');
         if (managercreds.checked == true){
-            loginDashboard = "manager_dashboard.html"
-            console.log("This is working")
+            loginDashboard = "/manager_dashboard.html"
+            console.log("This is working manager")
         }else{
-            loginDashboard = "employee_dashboard.html"
+            loginDashboard = "/employee_dashboard.html"
             console.log("This is working")
         }
-        href = loginDashboard;
+        console.log(loginDashboard);
+        window.location.href =loginDashboard;
+
         console.log("Made it to part 2")
     }
 </script>
 <div class="container my-2">
     <h1>Login</h1>
-    <form onsubmit="redirectFunc()">
+    <form action="manager_dashboard.html">
         <div class="container">
             <label><b>Username</b></label>
             <input type="text" placeholder="Enter Username" name="uname" required>
 
             <label><b>Password</b></label>
             <input type="password" placeholder="Enter Password" name="psw" required>
-            <button type="submit" id="submitBtn">Login</button>
+            <button id="submitBtn">Login</button>
             <label>
                 <input type="checkbox" id="login_with_manager_creds" name="manager"> Log-in As Manager?
             </label>
         </div>
-
- <!--       <div class="container" style="background-color:#f1f1f1">
-            <button type="button" class="cancelbtn">Cancel</button>
-            <span class="psw">Forgot <a href="#">password?</a></span>
-        </div>-->
     </form>
 </div>
 </body>
