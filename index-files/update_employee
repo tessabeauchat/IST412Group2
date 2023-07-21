@@ -18,26 +18,33 @@
         <!-- Add hidden form field to handle update -->
         <input type="hidden" th:field="*{sid}" />
 
-        <input type="text" th:field="*{emplName}" class="form-control mb-4 col-4">
+        <label for="emplName">Employee Name:</label>
+        <input id="emplName" type="text" th:field="*{emplName}" class="form-control mb-4 col-4">
 
-        <input type="text" th:field="*{emplEmail}" class="form-control mb-4 col-4">
+        <label for="emplEmail">Employee Email:</label>
+        <input id="emplEmail" type="text" th:field="*{emplEmail}" class="form-control mb-4 col-4">
 
         <div class="col-lg-3" >
 
-            <br></br>
-            <li th:each="role : ${roles}"><input th:field="*{role}"
-                                                       th:text="${role}" th:value="${role.id}"
-                                                       type="checkbox"/></li>
-            </td>
+            <h3>Roles:</h3>
+            <ul th:each="role : ${roles}">
+                <li>
+                    <input id="${role}" th:field="*{role}" th:text="${role}" th:value="${role.id}" type="checkbox"/>
+                    <label th:for="${role}"> ${role} </label>
+                </li>
+            </ul>
         </div>
-            <div class="col-lg-3" >
-                <select class="form-control"  id="Select Course" th:field="*{courses}" multiple="multiple">
-                    <option value="">Select Role(s) .....</option>
-                    <option th:each="role : ${allRoles}"
-                            th:value="${role.id}"
-                            th:text="${role.roleName} "></option>
-                </select>
-            </div>
+
+             <div class="col-lg-3" >
+            <label for="Select Course">Courses:</label>
+            <select class="form-control"  id="Select Course" th:field="*{courses}" multiple="multiple">
+                <option value="">Select Course(s) .....</option>
+                <option th:each="role : ${allRoles}"
+                        th:value="${role.id}"
+                        th:text="${role.roleName} "></option>
+            </select>
+        </div>
+
         <button type="submit" class="btn btn-info col-2"> Update Employee</button>
     </form>
 
